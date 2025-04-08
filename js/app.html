@@ -1,0 +1,26 @@
+// 基础功能函数
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast-message';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.remove();
+    }, 2000);
+}
+
+// 表单处理
+function handleSubmit(event) {
+    event.preventDefault();
+    const input = event.target.querySelector('input');
+    alert(`已提交：${input.value}`);
+    input.value = '';
+}
+
+// 设备特性检测
+document.addEventListener('DOMContentLoaded', () => {
+    if('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+    }
+});
